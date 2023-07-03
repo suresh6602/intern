@@ -1,2 +1,2 @@
-# intern
+# Intern
 The first assignment
