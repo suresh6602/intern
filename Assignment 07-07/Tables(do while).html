@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tables</title>
+  
+</head>
+<body>
+  <h1>Tables</h1>
+  <label for="number">Enter an integer:</label>
+  <input type="number" id="number" name="number">
+  <button onclick="printTables()">Print Tables</button>
+  
+  <div id="result"></div>
+  
+  <script>
+    function printTables() {
+      var number = Number(document.getElementById("number").value);
+      var result = '';
+
+      var i = 1;
+      do {
+        var table = number * i;
+        result += number + " x " + i + " = " + table + "<br>";
+        i++;
+      } while (i <= 10);
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+
+  
+</body>
+</html>

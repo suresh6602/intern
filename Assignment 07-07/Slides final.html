@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slideshow</title>
+  <style>
+    
+    img {
+      width: 500px;
+      height: 300px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    var imageIndex = 0;
+    var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+
+    function handleClick(event) {
+      var cursor = event.clientX;
+      var imageWidth = event.target.offsetWidth;
+
+      if (cursor < imageWidth / 2) {
+        previousImage();
+      } else {
+        nextImage();
+      }
+    }
+
+    function nextImage() {
+      imageIndex++;
+      if (imageIndex >= images.length) {
+        imageIndex = 0;
+      }
+      updateImage();
+    }
+
+    function previousImage() {
+      imageIndex--;
+      if (imageIndex < 0) {
+        imageIndex = images.length - 1;
+      }
+      updateImage();
+    }
+
+    function updateImage() {
+      var image = document.getElementById("slideshowImage");
+      image.src = images[imageIndex];
+    }
+  </script>
+</head>
+<body>
+  <h1>Slideshow</h1>
+  <img id="slideshowImage" src="1.jpg" onclick="handleClick(event)">
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subject Marks</title>
+</head>
+<body>
+  <h1>Subject Marks</h1>
+  <label for="subject1">Subject 1:</label>
+  <input type="number" id="subject1" name="subject1"required/><br><br>
+
+  <label for="subject2">Subject 2:</label>
+  <input type="number" id="subject2" name="subject2"><br><br>
+
+  <label for="subject3">Subject 3:</label>
+  <input type="number" id="subject3" name="subject3"><br><br>
+
+  <label for="subject4">Subject 4:</label>
+  <input type="number" id="subject4" name="subject4"><br><br>
+
+  <label for="subject5">Subject 5:</label>
+  <input type="number" id="subject5" name="subject5"><br><br>
+
+  <button onclick="calculateTotal()">Calculate</button>
+
+  <script>
+    function calculateTotal() {
+      var subject1 = Number(document.getElementById("subject1").value);
+      var subject2 = Number(document.getElementById("subject2").value);
+      var subject3 = Number(document.getElementById("subject3").value);
+      var subject4 = Number(document.getElementById("subject4").value);
+      var subject5 = Number(document.getElementById("subject5").value);
+
+      var totalMarks = subject1 + subject2 + subject3 + subject4 + subject5;
+        console.log(totalMarks)
+      if (totalMarks > 450) {
+        alert("You scored grade A - Congratulations");
+      } else if (totalMarks > 300 && totalMarks < 450) {
+        alert("You scored grade B - Good Job");
+      } else if (totalMarks > 250 && totalMarks < 300) {
+        alert("You scored grade C - You can do better");
+      } else {
+        alert("Need to Work Hard");
+      }
+    }
+  </script>
+</body>
+</html>

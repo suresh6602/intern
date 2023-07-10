@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Iterable and perform the operation</h1>
+    </head>
+    <p id="demo"></p>
+
+    <script>
+        
+        const numbers = [1,2,3,4,5];
+        let sum = 0;
+        let sub = numbers[0];
+        let product = 1;
+        for (let i =0 ;i<numbers.length;i++){
+            sum += numbers[i];
+        if(i>0){
+            sub -= numbers[i];
+        }
+            product *=numbers[i];
+        }
+        
+        console.log(sum);
+        console.log(sub);
+        console.log(product);
+</script>
+</html>
