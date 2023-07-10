@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+     form  label{
+float: left;
+clear: left;
+width: 500px;
+text-align: right;
+margin-right: 50px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+form input, select, span {
+float: left;
+margin-bottom: 10px;
+}
+  
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+  <script>
+
+    function showConfirmation() {
+      var confirmed = confirm("Are you sure you want to submit?");
+      if (confirmed) {
+        displayData();
+      }
+    }
+
+    function displayData() {
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var username = document.getElementById("username").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword= document.getElementById("confirmPassword").value;
+
+      var table = document.getElementById("dataTable");
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
+
+
+      cell1.innerHTML = firstName;
+      cell2.innerHTML = lastName;
+      cell3.innerHTML = username;
+      cell4.innerHTML = email;
+      cell5.innerHTML = password;
+      cell6.innerHTML = confirmPassword
+    }
+  </script>
+</head>
+<body>
+  <center><h1>Registration Form</h1></center>
+  <form>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required/><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br><br><br>
+
+    <input style="margin-left: 550px;" type="button" value="Register"onclick="showConfirmation()"><br><br>
+  </form>
+
+  <center><h2>Registered Users</h2></center>
+  <table id="dataTable" align="center">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>password</th>
+      <th>confirmPassword</th>
+    </tr>
+  </table>
+</body>
+</html>
