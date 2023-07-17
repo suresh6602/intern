@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bulls and cows</title>
+        <link rel="stylesheet" href="style.css" /> 
+    </head>
+    <body>
+        
+        <div class="container">
+            <h1> Bulls & cows</h1>
+            <h3>Guess the 4 digit number with no repeated digit</h3>
+            <input type="text" placeholder="Num" id="guess" maxlength="4" /><br/><br/><br/>
+            <button class="button" onclick="checkGuess()">Guess</button>
+            <button class="button" onclick="resetGame()">Reset</button>
+            <div id="result"></div>
+            <div id="try"></div>
+            <div id="attempts"></div>
+        </div>
+        <script src="app.js"></script>
+        
+    </body>
+</html>

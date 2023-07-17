@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Search</title>
+</head>
+<body>
+  <input type="text" id="searchInput" placeholder="Search word">
+  <button onclick="searchText()">Search</button>
+  <div id="result"></div>
+
+  <p>Kalam took great care of his colleagues. A co-worker had promised his kids that he
+    would take them to the science museum after returning from work, and obtained the
+    prior permission of Mr. Kalam to leave early. The colleague was so engrossed in his
+    work that it was well into the evening when he realised that he had made a promise to
+    his kids. On rushing back home, he came to know from his wife that Mr. Kalam had
+    come earlier and taken his kids to the museum.
+    Great Human Being</p>
+
+  <script>
+    const paragraph = `Kalam took great care of his colleagues. A co-worker had promised his kids that he
+            would take them to the science museum after returning from work, and obtained the
+            prior permission of Mr. Kalam to leave early. The colleague was so engrossed in his
+            work that it was well into the evening when he realised that he had made a promise to
+            his kids. On rushing back home, he came to know from his wife that Mr. Kalam had
+            come earlier and taken his kids to the museum.
+            Great Human Being`;
+
+    const searchText = () => {
+      const searchInput = document.getElementById("searchInput");
+      const searchTerm = searchInput.value.trim();
+
+      if (searchTerm !== "") {
+        const regex = new RegExp(searchTerm, "gi");
+        const matches = paragraph.match(regex);
+
+        if (matches) {
+          document.getElementById("result").textContent = `Found ${matches.length} matches for "${searchTerm}"`;
+        } else {
+          document.getElementById("result").textContent = `No matches found for "${searchTerm}"`;
+        }
+      } else {
+        document.getElementById("result").textContent = "Please enter a search term";
+      }
+    };
+  </script>
+</body>
+</html>

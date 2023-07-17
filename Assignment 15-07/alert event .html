@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Event </title>
+</head>
+<body>
+    <h1>Alert a message</h1>
+    <!-- <p id="myButton"></p> -->
+    <!-- <button onclick="showAlert()"><b>Click me</b></button> -->
+    <button id="myButton"> click me</button>
+    <script>
+        // function showAlert(){
+        //     alert("welcome to the Javascript course");
+        // }
+
+        // Create a function to handle the event
+const showAlert = () => {
+  alert("Welcome to the Javascript Course");
+};
+
+// Get the button element from the HTML document
+const button = document.getElementById("myButton");
+
+// Add an event listener to the button
+button.addEventListener("click", showAlert);
+
+    </script>
+
+</body>
+</html>
+
+   
