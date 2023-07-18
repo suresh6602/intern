@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web page</title>
+    </head>
+    <body>
+        <script>
+            // Create the HTML elements
+            var html = document.createElement("html");
+            var head = document.createElement("head");
+            var body = document.createElement("body");
+            var h1 = document.createElement("h1");
+            var p = document.createElement("p");
+
+            // Set the text content of the elements
+            h1.textContent = "Hello, World!";
+            p.textContent = "This is a simple HTML page created using pure JavaScript.";
+
+            // Append the elements to the document
+            document.documentElement.appendChild(html);
+            html.appendChild(head);
+            html.appendChild(body);
+            body.appendChild(h1);
+            body.appendChild(p);
+        </script>
+    </body>
+</html>
