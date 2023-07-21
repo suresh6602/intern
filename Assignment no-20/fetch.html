@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COVID-19 Data</title>
+</head>
+<body>
+  <h2>COVID-19 Data</h2>
+  <pre id="data-container"></pre>
+
+  <script>
+    const url = 'https://data.covid19india.org/state_district_wise.json';
+
+    // Function to fetch data using the fetch API
+    function fetchData(url) {
+      return fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Function to display the fetched data in a prettily formatted way
+    function displayData(data) {
+      const formattedData = JSON.stringify(data, null, 2);
+      document.getElementById('data-container').textContent = formattedData;
+    }
+
+    // Fetch the data and display it on the page
+    fetchData(url)
+      .then(data => {
+        displayData(data);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Send httpRequest</h2>
+        <pre id="data-container"></pre>
+       
+    <script>
+        
+        const xhr = new XMLHttpRequest();
+        const url = 'https://data.covid19india.org/state_district_wise.json';
+        // GET request
+        xhr.open('GET', url);
+        xhr.responseType = 'json';
+
+        xhr.onload = function(){
+            // const listofposts = JSON.parse(xhr.response);
+            const listofposts = xhr.response;
+            console.log(listofposts);
+            document.getElementById("data-container").innerHTML=JSON.stringify(listofposts, null, 2);
+           
+        };
+
+        xhr.onerror = function(){
+            document.getElementById("data-container").innerText = "Error:unable to fetch data.";
+        };
+
+        xhr.send();
+    </script>
+    </body>
+</html>   
