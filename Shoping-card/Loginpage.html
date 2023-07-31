@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login-Shoping-card</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .container button:hover {
+            background-color: #9f9fa4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="container">
+    <form>
+    <div>
+        <label for="username">Email:</label><br>
+        <input type="text" id="username" required /><br>
+    </div>
+    <div>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" maxlength="6" required /><br><br>
+    </div>
+    <button type="button" onclick="loginuser()">Login</button><br>
+    <div>
+        <a href="#">Forgot password?</a><br>
+    </div>
+    <div>
+        Not a member? <a href="./signup.html">Sign up now</a>
+    </div>
+    </div>
+    <script>
+
+    function loginuser() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if(username=="" || password==""){
+            alert('Please fill in all the required fields.');
+            return;
+            } 
+
+            const jsonData = {
+                username:username,
+                password:password
+            };
+             const url =  `https://shopping-card-ff680-default-rtdb.firebaseio.com/login.json`;
+
+            fetch(url, {
+                 method: 'GET'
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Data retrieved successfully:',data);
+                let isValidUser = false;
+
+                for (const userId in data) {
+                    const user = data[userId];
+
+                    if ((user.username === username || user.email === username) && user.password === password) {
+                       isValidUser = true;
+                       console.log('login successful.user details:',user);
+                       window.location.href = 'dashboard.html';
+                       break;
+                    }
+
+                   }   if(!isValidUser) {
+                        console.log('Invalid username & password.');
+                        alert('Invalid username & password.');
+
+                   }
+                
+
+            })
+            .catch(error =>{
+                console.error('Error retrieving data:',error)
+            });
+
+    }
+
+</script>
+</body>
+</html>
+        <!-- // function login() {
+        //     const username = document.getElementById("username").value;
+        //     const password = document.getElementById("password").value;
+            
+        //     const jsonData = {
+        //         username:username,
+        //         password:password
+        //     };
+        //     // Firebase Realtime Database REST API endpoint
+        //     const url = 'https://shopping-card-ff680-default-rtdb.firebaseio.com/user.json';
+
+        //     fetch(url,{
+        //         method:'POST',
+        //         body: JSON.stringify(jsonData)
+        //     })
+        //     console.log('data fetched successfully');
+        // }
+
+
+       
+
+        //   function login() {
+        //     const username = document.getElementById("username").value;
+        //     const password = document.getElementById("password").value;
+                    
+        //     const jsonData = {
+        //         username:username,
+        //         password:password
+        //     };
+        //   const url = `https://shopping-card-ff680-default-rtdb.firebaseio.com/user.json`;
+
+        //     fetch(url, {
+        //     method: 'GET'
+        //   })
+        //   .then(response => response.json())
+        //   .then(data => {
+        //     for (const userId in data) {
+        //       const user = data[userId];
+        //     //   console.log(userId);
+        //       if (user.username === username && user.password === password) {
+        //         console.log('Login successful.');
+        //         // Perform any actions after successful login, e.g., redirect to a dashboard page
+        //         return true;
+        //       }
+        //     }
+        //     console.log('Invalid username or password.');
+        //     // Show an error message to the user or take appropriate actions
+        //     return false;
+        //   })
+        //   .catch(error => {
+        //     console.error('Error during login:', error);
+        //     throw error;
+        //   });
+        // } -->
+
+

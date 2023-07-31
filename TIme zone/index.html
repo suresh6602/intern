@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title> 
+    <style>
+        h2 {
+            text-align: center;
+        }
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .clock {
+            font-size: 40px;
+            margin: 10px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>    
+</head>
+<body>
+    <h2>World Clock</h2>
+    <div class="clock-container" id="ClockContainer"></div>
+
+    <script>
+        function getTime(timezone) {
+            const date = new Date().toLocaleString('en-US', { timeZone: timezone });
+            return new Date(date).toLocaleTimeString();
+        }
+
+        const countries = [
+            { name: 'Local Time', timezone: 'local' }, // 'local' will be handled separately for local time
+            { name: 'New York', timezone: 'America/New_York' },
+            { name: 'London', timezone: 'Europe/London' },
+            { name: 'Tokyo', timezone: 'Asia/Tokyo' },
+            // Add more countries and their time zones here
+        ];
+
+        function updateClocks() {
+            const clockContainer = document.getElementById('ClockContainer');
+            clockContainer.innerHTML = '';
+
+            for (const country of countries) {
+                const time = country.timezone === 'local' ? getTime(Intl.DateTimeFormat().resolvedOptions().timeZone) : getTime(country.timezone);
+                const clockDiv = document.createElement('div');
+                clockDiv.classList.add('clock');
+                clockDiv.innerHTML = `<strong>${country.name}</strong><br>${time}`;
+                clockContainer.appendChild(clockDiv);
+            }
+        }
+
+        setInterval(updateClocks, 1000);
+        updateClocks(); // Initial call to populate clocks
+    </script>
+</body>
+</html>

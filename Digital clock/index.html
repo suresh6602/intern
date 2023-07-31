@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Build a digital clock</title> 
+        <style>
+            h2{
+                text-align: center;
+            }
+            #Clock{
+                font-size: 100px;
+                margin: 50px;
+                text-align: center;
+                border: 2px solid black;
+                border-radius: 20px;
+            }
+        </style>    
+    </head>
+    <body>
+        <h2>Display Digital clock</h2>
+        <div id="Clock"></div>
+        <script>
+            setInterval(myTimer,1000);
+
+            function myTimer(){
+                const Time = new Date();
+                document.getElementById("Clock").innerHTML=Time.toLocaleTimeString();
+            }
+        </script>
+    </body>
+
+</html>
