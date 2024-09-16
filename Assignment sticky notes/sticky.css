@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background-color: #3cdee7;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 24px;
+  padding: 24px;
+}
+
+.sticky {
+  height: 200px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.sticky .note-title,
+.sticky .note-description {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 16px;
+  border: none;
+  resize: none;
+  outline: none;
+}
+
+.sticky .note-description{
+  height: 90px;
+}
+
+.sticky .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-add {
+  height: 200px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  background-color: #58aef5;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #6cd0ea;
+  border-radius: 5px;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 5px 6px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #dbe4eb;
+  margin-left: 80px;
+  color: #f04e4e;
+}
+
+.btn-delete {
+  background-color: #f3e5e4;
+  color: #1a1414;
+}

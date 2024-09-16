@@ -1,0 +1,45 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p:first").hide();
+  });
+});
+
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+
+</script>
+<style>
+    #panel, #flip {
+  padding: 10px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+</head>
+<body>
+    <div id="flip">Click to slide the panel down or up</div>
+    <div id="panel">Hello world!</div>
+<center>
+
+<h2 style="text-align: center;">Using jquery in js</h2>
+<p>Using js query to hide the paragraph</p>
+<p>This is another paragraph.</p>
+<button>Click me</button>
+
+</center>
+</body>
+</html>

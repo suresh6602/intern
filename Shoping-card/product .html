@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>product Page</title>
+ <style>
+    h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+       
+        .container button:hover {
+            background-color: #9f9fa4;
+        }
+</style> 
+</head>
+<body>
+    <h1>Adding product</h1>
+    <div class="container">
+        
+    <form id="cartForm">
+        <label for="itemName" >Item Name:</label><br>
+        <input type="text" id="itemName" required /><br>
+
+        <label for="itemDescription">ItemDescription:</label><br>
+        <input type="text" id="itemDescription" required /><br>
+
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" required /><br><br>
+
+        <!-- <label for="image">Image:</label><br>
+        <input type="file" id="image" accept="image/*" required><br><br> -->
+
+        <button type="button" onclick="addToCart()">Add to product</button>
+    </form>
+
+    </div>
+
+    <script>
+
+        function addToCart() {
+            const itemName = document.getElementById('itemName').value;
+            const itemDescription = document.getElementById('itemDescription').value;
+            const price = document.getElementById('price').value;
+            // const imagefile = document.getElementById('image').files[0];
+            
+            if(itemName=="" || itemDescription=="" || price==""){
+            alert('Please fill in all the required fields.');
+            return;
+            } 
+
+            // if(!imagefile){
+            //     console.error('No image selected.');
+            //     return;
+            // }
+
+            // const reader = new FileReader();
+            // reader.onload = (event) => {
+            //     const imageBase = event.target.result;
+                const cartItem={
+            
+                name: itemName,
+                Description:itemDescription,
+                price: price,
+                // image:imagefile
+            };
+
+            const url = `https://shopping-card-ff680-default-rtdb.firebaseio.com/product.json`;
+
+            fetch(url,{
+                method: 'POST',
+                body : JSON.stringify(cartItem)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data are added succesfully:',data);
+                    
+            })
+            .catch(error => {
+                console.error('error adding item to cart:',error);
+            });
+        };
+    //         reader.readAsDataURL(imagefile);
+             
+    // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+body {
+    margin: 0;
+    /* background-color: rgb(234, 72, 72); */
+    font-family:Arial, sans-serif;
+}
+
+.container{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 24px;
+  padding: 24px;
+  min-height: 78vh;
+}
+
+.addNoteBtn{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 14px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  color:black;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+
+.addNoteBtn:hover {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 5px;
+} 
+
+.sticky-note {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #ffc107;
+  padding: 16px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.bi.bi-x-circle-fill{
+  cursor: pointer;
+  margin-left: 5px;
+  color: black;
+}
+
+.bi.bi-bookmark-check-fill{
+  /* display: none; */
+  cursor: pointer;
+  margin-left: 5px;
+  color: black;
+}
+
+.bi.bi-pen{
+  /* display: none; */
+  cursor: pointer;
+  margin-left: 5px;
+  color: black;
+}
+
+.bi.bi-bookmark-check{
+  display: none;
+  cursor:pointer;
+  margin-left:5px;
+  color: black;
+}
+
+.note-text {
+  margin-top: 10px;
+  width: 100%;
+  height: 95%;
+  resize: none;
+  border: none;
+  background: none;
+  font-size: 14px;
+}
+
+.custom-textarea{
+  resize: none;
+}

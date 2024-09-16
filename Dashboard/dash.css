@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+
+body {
+    font-family:Arial, sans-serif;
+    background-color: black !important;
+}
+
+.container{
+    min-height:80vh;
+    padding:20px;
+    height: 100%;
+}
+
+.custom-card-body {
+    border: 1px solid #4e4d4d;
+    padding: 10px;
+}
+
+.custom-column {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #656363;
+    padding: 10px;
+    height: 100%;
+    margin-left:20px;
+    border-radius: 8px;
+    background-color: black;
+}
+.custom-header {
+    /* background-color: #656363; */
+    padding: 10px;
+    margin:0px;
+    color: white;
+}
+
+/* .custom-content{
+    min-height: 75vh;
+    height: 100%;
+} */
+  
+.custom-footer {
+    margin-top: auto;
+    /* background-color: #656363; */
+    padding: 10px;
+    border-top: 1px solid #f54444;
+    color: white;
+}
+
+textarea.form-control {
+    resize: none;
+    padding: 16px;
+    position: relative;
+    /* background-color: #656363; */
+    /* color: black !important; */
+}
+
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    color: white;
+    border: 1px solid;
+    font-size: 14px;
+}
+
+.bi-chat-square-dots::before {
+    /* content: "\f25f"; */
+    cursor: pointer;
+    margin-left: 5px;
+    color: rgb(170, 168, 168);
+}
+
+.bi-check-circle::before {
+    /* content: "\f26b"; */
+    cursor: pointer;
+    margin-left: 5px;
+    color: rgb(170, 168, 168);
+}
+
+.bi-trash3::before {
+    /* content: "\f78b"; */
+    cursor: pointer;
+    margin-left: 5px;
+    color: rgb(170, 168, 168);
+}
+
+.card {
+border: none !important;
+}
+
+.container {
+    display: flex;
+    resize: both; 
+    overflow: auto;
+}
+
+.row{
+    display: flex;
+    width: 100%; 
+}

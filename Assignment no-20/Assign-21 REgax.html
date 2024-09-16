@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test First Character Uppercase</title>
+</head>
+<body>
+    <center>
+    <h2>Test First Character Uppercase</h2>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="checkFirstCharacter()">Check</button>
+    <p id="result"></p>
+    </center>
+
+    <script>
+       function checkFirstCharacter() {
+    const inputElement = document.getElementById('inputString');
+    const inputString = inputElement.value;
+    // Define a regular expression to check if the first character is uppercase
+    const regex = /^[A-Z]/;
+    // Test the first character of the input string against the regular expression
+    const isUppercase = regex.test(inputString);
+
+    const resultElement = document.getElementById('result');
+    if (isUppercase) {
+        resultElement.textContent = "The first character is uppercase.";
+    } else {
+        resultElement.textContent = "The first character is not uppercase.";
+    }
+}
+ 
+    </script>
+</body>
+</html>
